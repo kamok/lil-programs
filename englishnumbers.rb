@@ -17,16 +17,16 @@ def englishNumber number
   teenagers = ['eleven',  'twelve',    'thirteen', 'fourteen', 'fifteen',
                'sixteen', 'seventeen', 'eighteen', 'nineteen']      
 
-  left  = number
+  left = number
 
-   write = left/(10**12)
-   left = left - write*(10**12)
+  write = left/(10**12)
+  left = left - write*(10**12)
 
-  if write >0
-    trillions = englishNumber write
+  if write > 0
+    trillions = englishNumber(write)
     numString = numString + trillions + ' trillion'
 
-    if left >0
+    if left > 0
       numString = numString + ' '
     end
   end 
@@ -35,7 +35,7 @@ def englishNumber number
   left = left - write*(10**9)
 
   if write >0
-    billions = englishNumber write
+    billions = englishNumber(write)
     numString = numString + billions + ' billion'
 
     if left >0
@@ -46,11 +46,11 @@ def englishNumber number
   write = left/(10**6)
   left = left - write*(10**6)
 
-  if write >0
-    millions = englishNumber write
+  if write > 0
+    millions = englishNumber(write)
     numString = numString + millions + ' million'
 
-    if left >0
+    if left > 0
       numString = numString + ' '
     end
   end 
@@ -59,7 +59,7 @@ def englishNumber number
   left  = left - write*1000  
                              
   if write > 0
-    thousands = englishNumber write
+    thousands = englishNumber(write)
     numString = numString + thousands + ' thousand'
 
     if left > 0
@@ -73,7 +73,7 @@ def englishNumber number
     
 
   if write > 0
-    hundreds  = englishNumber write
+    hundreds  = englishNumber(write)
     numString = numString + hundreds + ' hundred'
 
     if left > 0
