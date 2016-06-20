@@ -1,17 +1,21 @@
+require "pry"
 class CountChange
-	attr_accessor :cost
+	attr_accessor :cost, :pay, :change
 
-	def initialize
-		
+	def initialize(cost, pay)
+		@cost = cost.to_f
+		@pay = pay.to_f
 	end
-	def start
-		get_cost
-		pay
+
+	def give_change
 		calc_change
+		change
 	end
 
-	def get_cost
-		puts "How much is the item?"
-		cost = gets.chomp.to_f
+	def calc_change
+
 	end
+
 end
+
+p CountChange.new(123.19, 130).give_change
