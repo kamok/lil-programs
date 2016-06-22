@@ -15,7 +15,7 @@ class CountChange
 		original_change = change
 		hash_of_change = {}
 
-		#Cash registers don't take hundreds, so there's no way for fifty dollar bill change.
+		#Cash registers don't take hundreds, so there's no returning fifty dollar bills.
 
 		until self.change/20 <= 1
 			self.change -= 20
@@ -66,11 +66,17 @@ class CountChange
 		end
 
 		string_form = ""
-		hash_of_change.each {|key,value| string_form = string_form + "#{value} #{key} " } 
+		hash_of_change.each do |key,value| 
+			if key != hash_of_change.keys.last
+				string_form += "#{value} #{key}, "
+			else
+				string_form += "#{value} #{key}"
+			end
+		end
 
 		"Your change is $#{original_change} in terms of: #{string_form}."
 	end
 
 end
 
-puts CountChange.new(136, 130).calc_change
+puts CountChange.new(9.68, 20).calc_change
