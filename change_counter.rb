@@ -72,15 +72,10 @@ class CountChange
 
 	def beautify_hash_output(hash)
 		@string_form = ""
-		hash.each do |key,value| 
-			if key != hash.keys.last
-				@string_form += "#{value} #{key}, "
-			else
-				@string_form += "#{value} #{key}"
-			end
-		end
+		hash.each { |key,value| key != hash.keys.last ? @string_form += "#{value} #{key}, " 
+																									: @string_form += "#{value} #{key}" }
 	end
 
 end
 
-puts CountChange.new(9.68, 20).calc_change
+puts CountChange.new(4.64, 20).calc_change
