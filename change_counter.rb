@@ -65,16 +65,20 @@ class CountChange
 			hash_of_change["Penny"] += 1 
 		end
 
-		string_form = ""
-		hash_of_change.each do |key,value| 
-			if key != hash_of_change.keys.last
-				string_form += "#{value} #{key}, "
+		beautify_hash_output(hash_of_change)
+
+		"Your change is $#{original_change} in terms of: #{@string_form}."
+	end
+
+	def beautify_hash_output(hash)
+		@string_form = ""
+		hash.each do |key,value| 
+			if key != hash.keys.last
+				@string_form += "#{value} #{key}, "
 			else
-				string_form += "#{value} #{key}"
+				@string_form += "#{value} #{key}"
 			end
 		end
-
-		"Your change is $#{original_change} in terms of: #{string_form}."
 	end
 
 end
