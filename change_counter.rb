@@ -1,4 +1,4 @@
-#Todo, add pluralization and commas unless it's the last one.
+#Todo, add pluralization and refactor the until loops into a dictionary of bills and values and one until method
 
 class CountChange
 	attr_accessor :cost, :pay, :change
